@@ -1,11 +1,14 @@
 console.log('May Node be with you')
 
-const express = require('express');
+const express = require('express')
+const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
 const MongoClent = require('mongodb').MongoClient
-const app = express();
+const app = express()
 
-const connectionString = 'mongodb+srv://kmalley:Sessions70@cluster0.aftg9t1.mongodb.net/?retryWrites=true&w=majority'
+require('dotenv').config()
+
+const connectionString = process.env.DB_URL
 
 MongoClent.connect(connectionString, {
   useUnifiedTopology: true })
